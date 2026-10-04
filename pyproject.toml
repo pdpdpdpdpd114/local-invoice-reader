@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=84"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-invoice-reader"
+version = "1.0.0"
+description = "完全离线的电子普通发票识别与 Excel 导出工具"
+requires-python = ">=3.12"
+dependencies = [
+  "PySide6-Essentials>=6.11,<6.12",
+  "rapidocr>=3.9,<4",
+  "onnxruntime>=1.29,<2",
+  "pypdfium2>=5.13,<6",
+  "pdfplumber>=0.11,<1",
+  "openpyxl>=3.1,<4",
+]
+
+[project.scripts]
+local-invoice-reader = "invoice_tool.main:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
